@@ -1,14 +1,15 @@
 # Backup Checker
-Working in support, I usually get asked how many days I should keep journals. Should it be two days or after two backups? More? Less?
+Working in support, I usually get asked how many days I should keep journals. Should it be two days or after two backups? More? Less? Why two?
 
-Unless you have a Mirror environment, the correct answer is that you should keep the journals since the last validated Backup. I.e., until you don't check if a Backup is valid (restoring the file and checking with the Integrity utility), you can't be sure there is a good copy of your data and can't purge the journals safely.
+The correct answer (for most of the environments) is that you should keep the journals since the last validated Backup. I.e., until you don't check if a Backup is valid (restoring the file and checking with the Integrity utility), you can't be sure there is a good copy of your data and can't purge the journals safely.
 
-When I explain this, most of the administrators consider it a complex task. Taking a lot of time and hard to automate. So, I decided to build this super simple Backup checker/validator that helps you validate Backups easily and can be improved to send emails, create a report file, etc.
+The only way to make sure that your backups are valid is by checking them! And for checking, I mean restoring the databases and validating the data on them.  The way to check the data inside a database is by using the Integrity utility. 
 
-So, this utility is a simple Backup checker/validator for Backups done with InterSystems Iris. It will restore your Backup file (.cbk) automatically and will run an integrity report afterward.
+When I explain this, most administrators consider it a complex task, which takes a lot of time and is hard to automate. So, I decided to build a super simple Backup checker/validator that helps you validate Backups easily. I am uploading the utility to the open exchange site.
+
+The utility is a simple Backup checker/validator for Backups done with InterSystems Iris. It will restore your Backup file (.cbk) automatically and will run an integrity report afterward. All the "magic" is done in the restoreAll method of the Installer class. You can borrow the code and improve it to send you an email when it finishes with the results. 
 
 Once the Backup has been restored and the Integrity check run, the docker log (and messages.log) will contain the restore and integrity check results. The databases restored will appear in a Restore folder.
-
 
 ## Requirements
 - docker & docker-compose
