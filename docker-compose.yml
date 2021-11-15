@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  backupChecker:
+    container_name: backupChecker
+    # You can use any version, just need to have access to the intersystems docker server.
+    # I used community for simplicity, but I would recommend to use a similar version.
+    #image: containers.intersystems.com/intersystems/iris:2021.1.0.215.0
+    image: store/intersystems/iris-community:2021.1.0.215.3
+    volumes:
+      - ./Iris:/ISC
+      - ./:/ISC/utiles
+    environment:
+      - ISC_DATA_DIRECTORY=/ISC/install
+      # Rename your backup file for backup.cbk or change the variable IRIS_backupFileName 
+      # Note that the backup file has to be inside the Backup directory
+      - IRIS_backupFileName=backup.cbk
+    ports:
+      - "9092:52773"
+    command:
+      # No need for license if we are using the community edition
+      #--key /ISC/utiles/iris.key
+      -a /ISC/utiles/installer.sh  

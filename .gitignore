@@ -1,0 +1,5 @@
+*.DS_Store
+/.vscode
+/Backup/*.cbk
+/Restore/
+/Iris/
