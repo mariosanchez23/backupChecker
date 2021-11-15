@@ -1,13 +1,13 @@
 # Backup Checker
-Working in support I usually get asked for how many days should I keep journals. Should it be 2 days or after 2 backups? more? less? 
+Working in support I usually get asked how many days should I keep journals. Should it be 2 days or after 2 backups? more? less?
 
-Unless you have a Mirror environment, the right answer is that you should keep the journals since the last **validated Backup**. I.e, until you don't check if a Backup is valid (restoring the file and checking with the Integrity utility) you can't be sure there is a valid copy of your data and can't purge safely the journals.
+Unless you have a Mirror environment, the right answer is that you should keep the journals since the last validated Backup. I.e, until you don't check if a Backup is valid (restoring the file and checking with the Integrity utility) you can't be sure there is a valid copy of your data and can't purge safely the journals.
 
-When I explain this, most of administrators consider this is a complex task, which takes a lot of time and can't be automated, so I decided to build this super simple Backup checker/validator that help you validate Backups easily and can be improved to send mails, create a report file, etc...
+When I explain this, most of the administrators consider this is a complex task, which takes a lot of time and can't be automated, so I decided to build this super simple Backup checker/validator that helps you validate Backups easily and can be improved to send emails, create a report file, etc...
 
-So, this utility is a simple Backup checker/validator for Backups done with InterSystems Iris. It will restore automatically your Backup file (.cbk) and will run an integrity report afterward. 
+So, this utility is a simple Backup checker/validator for Backups done with InterSystems Iris. It will restore automatically your Backup file (.cbk) and will run an integrity report afterward.
 
-Once the Backup has been restored and the Integrity check run, the docker log (and messages.log) will contain the restore and integrity check results.  The databases restored will appear in a Restore folder. 
+Once the Backup has been restored and the Integrity check run, the docker log (and messages.log) will contain the restore and integrity check results. The databases restored will appear in a Restore folder.
 
 ## Requirements
 - docker & docker-compose
