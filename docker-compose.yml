@@ -5,7 +5,8 @@ services:
     # You can use any version, just need to have access to the intersystems docker server.
     # I used community for simplicity, but I would recommend to use a similar version.
     #image: containers.intersystems.com/intersystems/iris:2021.1.0.215.0
-    image: store/intersystems/iris-community:2021.1.0.215.3
+    #image: store/intersystems/iris-community:2021.1.0.215.3
+    image: intersystemsdc/iris-community
     volumes:
       - ./Iris:/ISC
       - ./:/ISC/utiles
